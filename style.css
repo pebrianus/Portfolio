@@ -1,0 +1,107 @@
+/* Custom Styles */
+
+/* Smooth Scrolling is handled by html scroll-behavior in modern browsers */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+    /* Offset for sticky navbar */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Navbar Tweaks */
+.custom-navbar {
+    background-color: #87CEEB;
+    /* Sky Blue */
+    /* Ensure visual separation with a strong shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    /* Sea Blue Gradient */
+    background: linear-gradient(135deg, #006994 0%, #005073 100%);
+    /* Deep Sea Blue */
+    margin-top: 0;
+    /* Ensure no gap, though navbar is fixed */
+}
+
+/* Section Colors */
+.section-projects {
+    background-color: #e3f2fd;
+    /* Soft Blue */
+}
+
+.section-contact {
+    background-color: #f8fbff;
+    /* Very Pale Blue / Off-White */
+}
+
+/* Card Improvements */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Decorative Line */
+.line-shape {
+    width: 60px;
+    height: 4px;
+    background-color: #0d6efd;
+    /* Bootstrap primary color */
+    border-radius: 2px;
+}
+
+/* Contact Form Tweaks */
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    border-color: #0d6efd;
+}
+
+.custom-footer {
+    background-color: #87CEEB;
+    /* Sky Blue */
+    /* Ensure visual separation with a strong shadow */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    color: #000000;
+    /* Pink Text */
+}
+
+.custom-footer p {
+    margin-bottom: 0.5rem;
+    /* Adjust margin if needed due to reduced padding */
+}
+
+.custom-footer a {
+    color: #000000;
+    /* Pink Icons */
+    transition: color 0.3s ease;
+}
+
+.custom-footer a:hover {
+    color: #c91f69;
+    /* Darker Pink on Hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+}
