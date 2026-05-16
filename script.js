@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Navbar active state updating on scroll
     const sections = document.querySelectorAll('section, body > #home');
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navLinks = document.querySelectorAll('.floating-navbar .nav-links a');
 
     window.addEventListener('scroll', () => {
         let current = '';
@@ -31,19 +31,39 @@ document.addEventListener('DOMContentLoaded', function() {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simulating form submission
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerText;
             
             submitBtn.innerText = 'Mengirim...';
             submitBtn.disabled = true;
 
-            setTimeout(() => {
-                alert('Terima kasih! Pesan Anda telah "terkirim" (ini hanya demo).');
-                this.reset();
+            const data = new FormData(contactForm);
+            
+            fetch(contactForm.action, {
+                method: contactForm.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('Terima kasih! Pesan Anda telah terkirim.');
+                    contactForm.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert('Oops! Terjadi kesalahan saat mengirim pesan.');
+                        }
+                    })
+                }
+            }).catch(error => {
+                alert('Oops! Terjadi kesalahan saat mengirim pesan.');
+            }).finally(() => {
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
-            }, 1500);
+            });
         });
     }
 
@@ -67,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Close mobile menu if open
                 const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
                         toggle: true
                     });

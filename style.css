@@ -12,29 +12,68 @@ body {
     color: #333;
 }
 
-/* Navbar Tweaks */
-.custom-navbar {
-    background-color: #87CEEB;
-    /* Sky Blue */
-    /* Ensure visual separation with a strong shadow */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+/* Floating Capsule Navbar */
+.floating-navbar {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(30, 30, 30, 0.75);
+    /* Dark transparent */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px 10px;
+    border-radius: 50px;
+    z-index: 1030;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    font-weight: 700;
+.floating-navbar .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 5px;
+}
+
+.floating-navbar .nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 24px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
 .hero-section {
     position: relative;
     overflow: hidden;
-    /* Sea Blue Gradient */
-    background: linear-gradient(135deg, #006994 0%, #005073 100%);
-    /* Deep Sea Blue */
+    background-image: linear-gradient(135deg, #3C51A0, #2D7F92, #3C51A0, #5A3BA1);
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
     margin-top: 0;
     /* Ensure no gap, though navbar is fixed */
+}
+
+/* Optional: smooth animation that slightly pans the blurred gradient making it look highly modern */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Section Colors */

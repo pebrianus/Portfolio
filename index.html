@@ -17,32 +17,17 @@
 <body id="home">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-lg custom-navbar">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#home">Portofolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav class="floating-navbar">
+        <ul class="nav-links">
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center text-center text-white"
-        style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); min-height: 100vh;">
+        style="min-height: 100vh;">
         <div class="container">
             <h1 class="display-3 fw-bold mb-3">Halo, Saya <span class="text-warning">Pebrianus Pangaleloe</span></h1>
             <h2 class="h3 fw-light mb-4 text-white-50">IT Support & Programmer</h2>
@@ -164,19 +149,19 @@
                 <div class="col-lg-7">
                     <div class="card shadow border-0 h-100">
                         <div class="card-body p-4">
-                            <form id="contactForm">
+                            <form id="contactForm" action="https://formspree.io/f/mojrgkao" method="POST">
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Nama Anda" required>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama Anda" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="email@contoh.com"
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="email@contoh.com"
                                         required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Pesan</label>
-                                    <textarea class="form-control" id="message" rows="4"
+                                    <textarea class="form-control" id="message" name="message" rows="4"
                                         placeholder="Tulis pesan Anda disini..." required></textarea>
                                 </div>
                                 <div class="d-grid">
